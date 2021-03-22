@@ -5,10 +5,10 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
-
     public static void main(final String[] args) {
         final int size = 10;
-        int input = inputNumber();
+        Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8);
+        int input = sc.nextInt();
         int[] arr1 = getFilledArray(size, input, Integer::sum);
         System.out.println(Arrays.toString(arr1));
 
@@ -35,17 +35,7 @@ public class Main {
             return modifier + i;
         });
         System.out.println(Arrays.toString(arr5));
-    }
-
-    static int inputNumber() {
-        Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8);
-        System.out.print("Введите целое число: ");
-        while (!sc.hasNextInt()) {
-            System.out.println("Введенное значение не является целым числом");
-            System.out.print("Введите целое число: ");
-            sc.next();
-        }
-        return sc.nextInt();
+        sc.close();
     }
 
     static int[] getFilledArray(final int size, final int modifier, final Processable p) {
