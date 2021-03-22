@@ -8,7 +8,14 @@ public class Main {
     public static void main(final String[] args) {
         final int size = 10;
         Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8);
+
+        while (!sc.hasNextInt()) {
+            System.out.println("Введенное значение не является целым числом");
+            System.out.print("Введите целое число: ");
+            sc.next();
+        }
         int input = sc.nextInt();
+
         int[] arr1 = getFilledArray(size, input, Integer::sum);
         System.out.println(Arrays.toString(arr1));
 
